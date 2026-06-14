@@ -1,0 +1,20 @@
+syntax = "proto3";
+option java_package = "com.sayan.models.sec05.v4";
+package sec05.v4;
+option java_multiple_files = true;
+
+message Television{
+  optional string brand = 1;
+  reserved 2;
+  reserved "year","model";
+  optional Type type = 3;
+  optional int32 price = 4;
+}
+
+enum Type {
+  HD = 0;
+  LED = 1;
+  OLED = 2;
+  SMART = 3;
+  CURVED = 4;
+}

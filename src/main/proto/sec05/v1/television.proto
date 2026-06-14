@@ -1,0 +1,9 @@
+syntax = "proto3";
+option java_package = "com.sayan.models.sec05.v1";
+package sec05.v1;
+option java_multiple_files = true;
+
+message Television{
+  optional string brand = 1;
+  optional int32 year = 2;
+}

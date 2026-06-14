@@ -1,0 +1,22 @@
+syntax = "proto3";
+option java_package = "com.sayan.models.sec03";
+package sec03;
+option java_multiple_files = true;
+
+message Address{
+  string city = 1;
+  string state = 2;
+  string street = 3;
+}
+
+message Student{
+  string name = 1;
+  int32 id = 2;
+  Address address = 3;
+}
+message School{
+
+  string name = 1;
+  int32 id  = 2;
+  Address address = 3;
+}
