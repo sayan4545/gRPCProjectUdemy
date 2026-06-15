@@ -1,8 +1,6 @@
 package com.dev.sayan.learncode.grpcproject.common;
-
 import com.dev.sayan.learncode.grpcproject.BankService;
 import io.grpc.ServerBuilder;
-
 import java.io.IOException;
 
 public class GrpcServer {
@@ -11,9 +9,7 @@ public class GrpcServer {
         var server = ServerBuilder.forPort(8888)
                 .addService(new BankService())
                 .build();
-
         server.start();
         server.awaitTermination();
-
     }
 }
