@@ -1,4 +1,4 @@
-package com.dev.sayan.learncode.grpcproject;
+package com.dev.sayan.learncode.grpcproject.sec06;
 
 import com.dev.sayan.learncode.grpcproject.repository.AccountRepository;
 import com.sayan.models.sec06.Account_balance;
