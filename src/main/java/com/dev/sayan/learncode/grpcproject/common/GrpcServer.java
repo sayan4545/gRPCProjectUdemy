@@ -8,7 +8,7 @@ import java.io.IOException;
 public class GrpcServer {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        var server = ServerBuilder.forPort(4000)
+        var server = ServerBuilder.forPort(8888)
                 .addService(new BankService())
                 .build();
 
