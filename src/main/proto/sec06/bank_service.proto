@@ -2,6 +2,7 @@ syntax = "proto3";
 option java_package = "com.sayan.models.sec06";
 package sec06;
 option java_multiple_files = true;
+import "google/protobuf/empty.proto";
 
 message balanceCheckRequest{
   int32 account_number = 1;
@@ -11,7 +12,11 @@ message Account_balance{
   int32 account_number = 1;
   int32 balance = 2;
 }
+message AllAccountList{
+  repeated Account_balance accounts = 1;
+}
 
 service BankService{
   rpc CalculateAccountBalance(balanceCheckRequest) returns (Account_balance);
+  rpc GetAllAccounts(google.protobuf.Empty) returns (AllAccountList);
 }

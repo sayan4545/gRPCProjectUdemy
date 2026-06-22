@@ -1,8 +1,10 @@
 package com.dev.sayan.learncode.grpcproject.sec06;
 
 import com.dev.sayan.learncode.grpcproject.repository.AccountRepository;
+import com.google.protobuf.Empty;
 import com.sayan.models.sec06.Account_balance;
 import com.sayan.models.sec06.BankServiceGrpc;
+import com.sayan.models.sec06.AllAccountList;
 import com.sayan.models.sec06.balanceCheckRequest;
 import io.grpc.stub.StreamObserver;
 
@@ -20,6 +22,22 @@ public class BankService extends BankServiceGrpc.BankServiceImplBase {
                 .build();
         responseObserver.onNext(accountBalance);
         responseObserver.onCompleted();
+
+    }
+
+    @Override
+    public void getAllAccounts(Empty request, StreamObserver<AllAccountList> responseObserver) {
+        var accountsList = AccountRepository.getAllAccounts()
+                .entrySet()
+                .stream()
+                .map(e-> Account_balance.newBuilder().setAccountNumber(e.getKey()).setBalance(e.getValue()).build())
+                .toList();
+
+        var response = AllAccountList.newBuilder().addAllAccounts(accountsList).build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+
 
     }
 }
