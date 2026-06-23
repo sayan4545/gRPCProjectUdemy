@@ -1,5 +1,7 @@
 package com.dev.sayan.learncode.grpcproject.sec06;
 
+import com.google.protobuf.Empty;
+import com.sayan.models.sec06.AllAccountList;
 import com.sayan.models.sec06.balanceCheckRequest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -18,6 +20,14 @@ public class Lec01UnaryBlockingClientTest extends AbstractTest {
             log.info("{}",balance);
             Assertions.assertEquals(100,balance.getBalance());
         }
+        @Test
+        public void allAccountList(){
+            var request = AllAccountList.newBuilder()
+                    .build();
+            var accountList = this.blockingStub.getAllAccounts(Empty.getDefaultInstance());
+            log.info("{}",accountList);
+        }
+
 
 
 
